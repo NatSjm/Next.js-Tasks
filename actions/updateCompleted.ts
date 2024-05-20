@@ -5,9 +5,6 @@ import {revalidatePath} from "next/cache";
 const supabase = createClient();
 
 export default async function updateCompleted(id: number, completed: boolean) {
-    if (!id) {
-        return;
-    }
 
     const {data, error} = await supabase
         .from('todos')

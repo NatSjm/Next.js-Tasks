@@ -14,7 +14,7 @@ export const CompletedCheckbox: React.FC<Props> = ({ id, completed }) => {
     const [isPending, startTransition] = useTransition();
 
     const handleChangeCompletedTask = (value: boolean) => {
-        if(isPending) return;
+        if(isPending || !id) return;
         startTransition(async () => {
             await updateCompleted(id, value);
         });
